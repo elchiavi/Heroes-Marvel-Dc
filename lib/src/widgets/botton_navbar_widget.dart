@@ -26,7 +26,6 @@ class BottonNavBar extends StatelessWidget {
             currentIndex: currentIndex, // quien está seleccionado
             items:  [
               BottomNavigationBarItem(
-
                 icon: Icon(Icons.calendar_today, size: 0.0),
                 label: 'Marvel Comics'
               ),
@@ -34,7 +33,6 @@ class BottonNavBar extends StatelessWidget {
               BottomNavigationBarItem(
                 icon: Icon(Icons.bubble_chart, size: 0.0),
                 label: 'DC Comics'
-        
               ),
             ],
             )

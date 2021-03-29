@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create:( _ ) => new UiProvider()),
       ],
       child:MaterialApp(
-        title: 'Marvel App',
+        title: 'Heroes App',
         debugShowCheckedModeBanner: false,
         initialRoute: 'home',
         routes: {

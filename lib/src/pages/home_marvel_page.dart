@@ -15,7 +15,7 @@ class HomePageMarvel extends StatelessWidget {
 
     return Stack(
           children: <Widget> [
-            HeaderWavesGradient(texto: titulo),
+            HeaderGradient(texto: titulo, colorUno: Colors.red[300], colorDos: Colors.red[400], colorTres: Colors.red, colorCuatro: Colors.red[700]),
             Container(
             child: SingleChildScrollView(
               child: Column(
@@ -34,7 +34,7 @@ class HomePageMarvel extends StatelessWidget {
   Widget _crearSwiper() {
 
     return Container(
-      padding: EdgeInsets.only(top: 190.0, left: 10.0 ),
+      padding: EdgeInsets.only(top: 155.0, left: 10.0 ),
       child: FutureBuilder(
         future: heroesProviders.getHeroesMarvel(),
         builder: (BuildContext context, AsyncSnapshot<List<HeroeModel>> snapshot) {

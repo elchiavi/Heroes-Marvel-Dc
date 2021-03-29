@@ -15,7 +15,7 @@ class HomePageDC extends StatelessWidget {
 
     return Stack(
           children: <Widget> [
-            HeaderWavesGradient(texto: titulo),
+            HeaderGradient(texto: titulo, colorUno: Colors.blue[300], colorDos: Colors.blue[400], colorTres: Colors.blue,colorCuatro: Colors.blue[700]),
             Container(
             child: SingleChildScrollView(
               child: Column(
@@ -34,7 +34,7 @@ class HomePageDC extends StatelessWidget {
   Widget _crearSwiper() {
 
     return Container(
-      padding: EdgeInsets.only(top: 190.0, left: 10.0 ),
+      padding: EdgeInsets.only(top: 155.0, left: 10.0 ),
       child: FutureBuilder(
         future: heroesProviders.getHeroesDc(),
         builder: (BuildContext context, AsyncSnapshot<List<HeroeModel>> snapshot) {

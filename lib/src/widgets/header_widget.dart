@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 
-class HeaderWavesGradient extends StatelessWidget {
+class HeaderGradient extends StatelessWidget {
 
   final String texto;
+  final Color colorUno;
+  final Color colorDos;
+  final Color colorTres;
+  final Color colorCuatro;
 
-  const HeaderWavesGradient({
-    @required this.texto,
+  const HeaderGradient({
+    @required this.texto, 
+    @required this.colorUno, 
+    @required this.colorDos, 
+    @required this.colorTres, 
+    @required this.colorCuatro,
   });
 
   @override
@@ -14,7 +22,7 @@ class HeaderWavesGradient extends StatelessWidget {
         height: double.infinity,
         width: double.infinity,
         child: CustomPaint(
-          painter: _HeaderWavesGradientPainter(),
+          painter: _HeaderGradientPainter(colorUno, colorDos,colorTres, colorCuatro),
           child: _titulos(this.texto)
         ),
       );
@@ -43,16 +51,28 @@ Widget _titulos(String titulo) {
       );
   }
 
-class _HeaderWavesGradientPainter extends CustomPainter{
+class _HeaderGradientPainter extends CustomPainter{
+
+  final Color colorUno;
+  final Color colorDos;
+  final Color colorTres;
+  final Color colorCuatro;
+
+  _HeaderGradientPainter(
+    
+    this.colorUno, 
+    this.colorDos, 
+    this.colorTres, 
+    this.colorCuatro);
 
   @override
   void paint(Canvas canvas, Size size) {
     final Gradient gradient = new LinearGradient(
       colors: <Color> [
-        Colors.grey[300],
-        Colors.grey[400],
-        Colors.grey,
-        Colors.grey[700]
+        this.colorUno,
+        this.colorDos,
+        this.colorTres,
+        this.colorCuatro
       ]
     );
 
@@ -71,12 +91,18 @@ class _HeaderWavesGradientPainter extends CustomPainter{
     final path = new Path(); // por defecho en (0,0)
 
     // dibujar
-    path.lineTo(0, size.height * 0.25);
-    path.quadraticBezierTo(size.width * 0.25, size.height * 0.30, size.width * 0.5, size.height * 0.25); // las ultimas dos es el lugar final donde termina la linea
-    path.quadraticBezierTo(size.width * 0.75, size.height * 0.20, size.width, size.height * 0.25);
-    path.lineTo(size.width, 0);
+    path.moveTo(0, size.height * 0.25); // mueve
+    path.lineTo(size.width, size.height * 0.20);
+    path.lineTo(size.width, 0); // dibuja
+    path.lineTo(0, 0);
 
-    canvas.drawPath(path, pencil);    
+    path.moveTo(0, size.height);
+    path.lineTo(0, size.height * 0.90);
+    path.lineTo(size.width, size.height * 0.85);
+    path.lineTo(size.width,  size.height); 
+    path.lineTo(0, size.height);
+
+    canvas.drawPath(path, pencil);       
   }
 
   @override
